@@ -16,7 +16,7 @@
                  
                     <tr>
                         <td>{{$promo->id}}</td>
-                        <td><a href="/pormos/{{$promo->id}}">{{$promo->titre}}</a></td>
+                        <td><a href="/promos/{{$promo->id}}">{{$promo->titre}}</a></td>
                         <td>{{$promo->description}}</td>
                         <td>{{$promo->duree}}</td>
                 </tr>
