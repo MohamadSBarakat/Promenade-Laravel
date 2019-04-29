@@ -1,0 +1,18 @@
+CREATE DATABASE PremierTutoLaravel;
+
+CREATE USER laravel IDENTIFIED BY L@rav3l;
+
+GRANT ALLPRIVILEGES ON PremierTutoLaravel TO laravel;
+
+
+CREATE USER 'laravel'@'localhost' IDENTIFIED BY 'L@rav3l-';
+
+GRANT ALL PRIVILEGES ON PremierTutoLaravel.* TO 'laravel'@'localhost';
+
+
+CREATE DATABASE PromoLaravel;
+
+CREATE USER 'promolaravel'@'localhost' IDENTIFIED BY 'L@rav3l-';
+
+GRANT ALL PRIVILEGES ON PromoLaravel.* TO 'promolaravel'@'localhost';
+
