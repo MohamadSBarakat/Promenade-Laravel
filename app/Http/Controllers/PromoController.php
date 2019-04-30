@@ -14,7 +14,7 @@ class PromoController extends Controller
      */
     public function index()
     {
-        $promos = Promo::orderBy('titre', 'desc')->paginate(1);
+        $promos = Promo::orderBy('created_at', 'desc')->paginate(1);
         return view('promos.index')->with('promos', $promos);
     }
 
@@ -42,10 +42,40 @@ class PromoController extends Controller
             'lieuDeDepart' => 'required',
             'duree'        => 'required',
             'pourFamille'  => 'required',
-            'photo'        => 'required'
+            'photo'        => 'image|nullable|max:1999'
         ]);
+         
+                    // Handle File Upload
+        if($request->hasFile('photo')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('photo')->storeAs('public/photo', $fileNameToStore);
 
-     
+      /*  // Handle File Upload
+        if($request->hasFile('photo')){
+            // Get filename with the extenion
+           
+            $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //Get Just ext
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            // Filename To Store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('photo')->storeAs('public/photo', $fileNameToStore); */
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';    
+        }
+            
 
 
         // Create Post
@@ -55,8 +85,7 @@ class PromoController extends Controller
         $promo->lieuDeDepart = $request->input('lieuDeDepart');
         $promo->duree = $request->input('duree');
         $promo->pourFamille = $request->input('pourFamille');
-        $promo->photo = $request->input('photo');
-
+        $promo->photo = $fileNameToStore;
         $promo->save(); 
 
         return redirect('/promos')->with('success', 'Promenade Created'); 
@@ -83,7 +112,8 @@ class PromoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $promo = Promo::find($id);
+        return view('promos.show')->with('promo', $promo);
     }
 
     /**

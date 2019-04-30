@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-                    <a href="/promos" class="btn btn-default">Go Back</a>
-                        <h2>{{$promo->id}}</h2>
-                        <h1>{{$promo->titre}}</h1>
-                        <h4>{{$promo->description}}</h4>
-                        <h2>{{$promo->duree}}</h2>
+    <a href="/promos" class="btn btn-primary">Go Back</a><br>
+        <h1>{{$promo->titre}}</h1>
+        <img style="width:100%" src="/storage/photo/{{$promo->photo}}">
+        <div>{{$promo->description}}</div>
+        <br>
+        <h2>{{$promo->duree}}</h2>
+        <hr>
+        <a href="/promos/{{$promo->id}}/edit" class="btn btn-primary">Edit</a>
                
-
  
 @endsection
