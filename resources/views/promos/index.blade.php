@@ -22,8 +22,10 @@
                 </tr>
 
             @endforeach
+           
                 </table>
+
             </div>
         </div>
-                    
+     {{$promos->links()}}                
 @endsection

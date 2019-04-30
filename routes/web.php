@@ -15,7 +15,7 @@ Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
 
-Route::resource('promos', 'PromoContrller');
+Route::resource('promos', 'PromoController');
 
 
 

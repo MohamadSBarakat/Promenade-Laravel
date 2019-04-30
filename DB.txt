@@ -16,3 +16,10 @@ CREATE USER 'promolaravel'@'localhost' IDENTIFIED BY 'L@rav3l-';
 
 GRANT ALL PRIVILEGES ON PromoLaravel.* TO 'promolaravel'@'localhost';
 
+
+Illuminate\View\ViewServiceProvider::class,
+Collective\Html\HtmlServiceProvider::class,
+
+
+'Form' => Collective\Html\FormFacade::class,
+'Html' => collective\Html\HtmlFacade::class,

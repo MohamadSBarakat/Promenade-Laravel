@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Promo;
 
-class PromoContrller extends Controller
+class PromoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PromoContrller extends Controller
      */
     public function index()
     {
-        $promos = Promo::all();
+        $promos = Promo::orderBy('titre', 'desc')->paginate(1);
         return view('promos.index')->with('promos', $promos);
     }
 
@@ -25,7 +25,7 @@ class PromoContrller extends Controller
      */
     public function create()
     {
-        //
+        return view('promos.create');
     }
 
     /**
@@ -36,8 +36,32 @@ class PromoContrller extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'titre'        => 'required',
+            'description'  => 'required',
+            'lieuDeDepart' => 'required',
+            'duree'        => 'required',
+            'pourFamille'  => 'required',
+            'photo'        => 'required'
+        ]);
+
+     
+
+
+        // Create Post
+        $promo = new Promo;
+        $promo->titre = $request->input('titre');
+        $promo->description = $request->input('description');
+        $promo->lieuDeDepart = $request->input('lieuDeDepart');
+        $promo->duree = $request->input('duree');
+        $promo->pourFamille = $request->input('pourFamille');
+        $promo->photo = $request->input('photo');
+
+        $promo->save(); 
+
+        return redirect('/promos')->with('success', 'Promenade Created'); 
+
+    }  
 
     /**
      * Display the specified resource.
