@@ -9,6 +9,10 @@
         <h2>{{$promo->duree}}</h2>
         <hr>
         <a href="/promos/{{$promo->id}}/edit" class="btn btn-primary">Edit</a>
-               
+        
+        {!!Form::open(['action' => ['PromoController@destroy', $promo->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+            {{Form::hidden('_method', 'DELETE')}}
+            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+        {!!Form::close()!!}
  
 @endsection

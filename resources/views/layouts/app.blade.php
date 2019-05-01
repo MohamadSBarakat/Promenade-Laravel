@@ -14,7 +14,8 @@
 
       <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
       <script>
-          CKEDITOR.replace( 'article-ckeditor' );
+          CKEDITOR.replace( 'article-ckeditor' );    
       </script>
+      <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
 </html>

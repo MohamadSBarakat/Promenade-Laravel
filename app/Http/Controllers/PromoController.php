@@ -14,7 +14,7 @@ class PromoController extends Controller
      */
     public function index()
     {
-        $promos = Promo::orderBy('created_at', 'desc')->paginate(1);
+        $promos = Promo::orderBy('created_at', 'desc')->paginate(4);
         return view('promos.index')->with('promos', $promos);
     }
 
@@ -41,11 +41,11 @@ class PromoController extends Controller
             'description'  => 'required',
             'lieuDeDepart' => 'required',
             'duree'        => 'required',
-            'pourFamille'  => 'required',
+        
             'photo'        => 'image|nullable|max:1999'
         ]);
          
-                    // Handle File Upload
+        // Handle File Upload
         if($request->hasFile('photo')){
             // Get filename with the extension
             $filenameWithExt = $request->file('photo')->getClientOriginalName();
@@ -84,7 +84,7 @@ class PromoController extends Controller
         $promo->description = $request->input('description');
         $promo->lieuDeDepart = $request->input('lieuDeDepart');
         $promo->duree = $request->input('duree');
-        $promo->pourFamille = $request->input('pourFamille');
+        $promo->pourFamille = $request->input('pourFamille')||false;
         $promo->photo = $fileNameToStore;
         $promo->save(); 
 
@@ -113,7 +113,7 @@ class PromoController extends Controller
     public function edit($id)
     {
         $promo = Promo::find($id);
-        return view('promos.show')->with('promo', $promo);
+        return view('promos.edit')->with('promo', $promo);
     }
 
     /**
@@ -125,7 +125,45 @@ class PromoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'titre'        => 'required',
+            'description'  => 'required',
+            'lieuDeDepart' => 'required',
+            'duree'        => 'required',
+            'pourFamille'  => 'required',
+            'photo'        => 'image|nullable|max:1999'
+        ]);
+
+         // Handle File Upload
+         if($request->hasFile('photo')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('photo')->storeAs('public/photo', $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';    
+        }
+            
+            
+
+        // Create Post
+        $promo = Promo::find($id);
+        $promo->titre = $request->input('titre');
+        $promo->description = $request->input('description');
+        $promo->lieuDeDepart = $request->input('lieuDeDepart');
+        $promo->duree = $request->input('duree');
+        $promo->pourFamille = $request->input('pourFamille');
+        $promo->photo = $fileNameToStore;
+        $promo->save(); 
+
+        return redirect('/promos')->with('success', 'Promenade Updated'); 
     }
 
     /**
@@ -136,6 +174,8 @@ class PromoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $promo = Promo::find($id);
+        $promo->delete();
+        return redirect('/promos')->with('success', 'Promenade Removed'); 
     }
 }

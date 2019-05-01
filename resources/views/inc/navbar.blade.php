@@ -8,11 +8,11 @@
           <ul class="navbar-nav mr-auto">
             <li><a class="nav-link" href="/">Home </a></li>
             <li><a class="nav-link" href="/about">About</a></li>
-            <li><a class="nav-link" href="/services">Services</a></li>
+        <!--    <li><a class="nav-link" href="/services">Services</a></li> -->
             <li><a class="nav-link" href="/promos">Les Promenades</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/promos/create">Create Promenade</a></li>
+            <li><a href="/promos/create" class="btn btn-primary">Create Promenade</a></li>
         </div>
       </nav>

@@ -15,27 +15,24 @@
             {!!Form::textarea('description', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Description Text'])!!}
         </div> 
         
-        <div class="form-group">
-                {{Form::label('lieuDeDepart', 'LieuDeDepart')}}
-                {{Form::text('lieuDeDepart', '', ['class' => 'form-control', 'placeholder' => 'LieuDeDepart'])}}
-        </div>
+          
     </div>
 
     <div class="col-lg-5">
 
         <div class="form-group">
                 {{Form::label('lieuDeDepart', 'LieuDeDepart')}}
-                {{Form::text('lieuDeDepart', '', ['class' => 'form-control', 'placeholder' => 'LieuDeDepart'])}}<br><br>
-        </div>    
+                {{Form::text('lieuDeDepart', '', ['class' => 'form-control', 'placeholder' => 'LieuDeDepart'])}}
+        </div><br><br>    
         <div class="form-group">
                 {{Form::label('duree', 'Duree')}}
                 {{Form::text('duree', '', ['class' => 'form-control', 'placeholder' => 'Duree'])}}
-        </div>
+        </div><br><br>
 
         <div class="form-group">
                 {{Form::label('photo', 'photo')}}
                 {{Form::file('photo')}}
-        </div>
+        </div><br><br>
 
 
         <div class="form-group">

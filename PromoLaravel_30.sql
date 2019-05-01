@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mar 30 Avril 2019 à 16:44
+-- Généré le :  Mer 01 Mai 2019 à 11:59
 -- Version du serveur :  5.7.26-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.17-0ubuntu0.18.04.1
 
@@ -78,9 +78,12 @@ CREATE TABLE `promos` (
 INSERT INTO `promos` (`id`, `titre`, `description`, `lieuDeDepart`, `duree`, `pourFamille`, `photo`, `created_at`, `updated_at`) VALUES
 (1, 'Promenade De Laussane', 'Promenade De Laussane Promenade De Laussane Promenade De Laussane Promenade De Laussane Promenade De Laussane', 'La Gare Cornavin', 3, 0, 'large.jpg', '2019-04-29 06:18:43', '2019-04-29 06:18:43'),
 (2, 'Promenade De Luzern', 'Promenade De Luzern Promenade De Luzern Promenade De Luzern Promenade De Luzern Promenade De Luzern', 'La Gare Cornavin', 2, 1, 'large.jpg', '2019-04-29 06:24:43', '2019-04-29 06:24:43'),
-(3, 'Promenade de Zirmatt', 'Promenade de Zirmatt \r\nPromenade de Zirmatt\r\nPromenade de Zirmatt\r\nPromenade de Zirmatt', 'Promenade de Zirmatt', 3, 0, 'large.jpg', '2019-04-30 08:50:55', '2019-04-30 08:50:55'),
 (4, 'Promenade de Russin', '<p>Promenade de Russin</p>\r\n\r\n<p>Promenade de Russin</p>\r\n\r\n<p>Promenade de RussinPromenade de Russin</p>\r\n\r\n<p>Promenade de Russin</p>', 'La gare Cornavin', 1, 0, 'noimage.jpg', '2019-04-30 10:30:49', '2019-04-30 10:30:49'),
-(5, 'Promenade de Zurick', '<p>The photo must be an image.</p>\r\n\r\n<p>The photo must be an image.</p>\r\n\r\n<p>The photo must be an image.</p>\r\n\r\n<p>The photo must be an image.</p>\r\n\r\n<p>&nbsp;</p>', 'La gare Cornavin', 3, 0, 'large_1556631886.jpg', '2019-04-30 11:44:46', '2019-04-30 11:44:46');
+(5, 'Promenade de Zurick', '<p>The photo must be an image.</p>\r\n\r\n<p>The photo must be an image.</p>\r\n\r\n<p>The photo must be an image.</p>\r\n\r\n<p>The photo must be an image.</p>\r\n\r\n<p>&nbsp;</p>', 'La gare Cornavin', 3, 0, 'large_1556631886.jpg', '2019-04-30 11:44:46', '2019-04-30 11:44:46'),
+(6, 'Promenade de Coppet', '<p>Promenade de Coppet</p>\r\n\r\n<p>Promenade de Coppet</p>\r\n\r\n<p>Promenade de CoppetPromenade de CoppetPromenade de Coppet</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>', 'La gare Cornavin', 2, 0, 'europe-4149947__340_1556694005.jpg', '2019-05-01 05:00:05', '2019-05-01 05:00:05'),
+(7, 'Promenade de Satigny', '<p>Promenade de Satigny Promenade de Satigny Promenade de Satigny Promenade de Satigny Promenade de Satigny</p>\r\n\r\n<p>Promenade de Satigny</p>\r\n\r\n<p>Promenade de Satigny</p>', 'La gare Cornavin', 1, 0, 'wp2777161_1556694403.jpg', '2019-05-01 05:06:43', '2019-05-01 05:06:43'),
+(8, 'Promenade de Zirmatt', '<p>Promenade de Zirmatt Promenade de Zirmatt Promenade de Zirmatt Promenade de Zirmatt Promenade de Zirmatt Promenade de Zirmatt</p>', 'La gare Cornavin', 3, 0, 'matterhorn-918442__340_1556703282.jpg', '2019-05-01 07:34:42', '2019-05-01 07:34:42'),
+(9, 'Promenade de Coppet', '<p>Promenade de Coppet Promenade de Coppet Promenade de Coppet</p>', 'La gare Cornavin', 2, 0, 'cervin-971230__340_1556704614.jpg', '2019-05-01 07:56:54', '2019-05-01 07:56:54');
 
 -- --------------------------------------------------------
 
@@ -141,7 +144,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT pour la table `promos`
 --
 ALTER TABLE `promos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
