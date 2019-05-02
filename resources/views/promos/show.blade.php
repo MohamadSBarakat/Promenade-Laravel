@@ -4,7 +4,7 @@
     <a href="/promos" class="btn btn-primary">Go Back</a><br>
         <h1>{{$promo->titre}}</h1>
         <img style="width:100%" src="/storage/photo/{{$promo->photo}}">
-        <div>{{$promo->description}}</div>
+        <div>{!!$promo->description!!}</div>
         <br>
         <h2>{{$promo->duree}}</h2>
         <hr>

@@ -18,7 +18,7 @@
                     <tr>
                         <td><img style="width:75%" src="/storage/photo/{{$promo->photo}}"></td>
                         <td><a href="/promos/{{$promo->id}}">{{$promo->titre}}</a></td>
-                        <td>{{$promo->description}}</td>
+                        <td>{!!$promo->description!!}</td>
                         <td>{{$promo->duree}}</td>
                 </tr>
 

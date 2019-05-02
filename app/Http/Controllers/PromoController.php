@@ -69,12 +69,12 @@ class PromoController extends Controller
             $extension = $request->file('photo')->getClientOriginalExtension();
             // Filename To Store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('photo')->storeAs('public/photo', $fileNameToStore); */
-
-        } else {
+            // UploadBernex  Image
+            $path = $Bernex request->file('photo')->storeAs('public/photo', $fileNameToStore); */
+  
+        } else { 
             $fileNameToStore = 'noimage.jpg';    
-        }
+        } 
             
 
 
@@ -130,7 +130,7 @@ class PromoController extends Controller
             'description'  => 'required',
             'lieuDeDepart' => 'required',
             'duree'        => 'required',
-            'pourFamille'  => 'required',
+     
             'photo'        => 'image|nullable|max:1999'
         ]);
 
@@ -159,7 +159,7 @@ class PromoController extends Controller
         $promo->description = $request->input('description');
         $promo->lieuDeDepart = $request->input('lieuDeDepart');
         $promo->duree = $request->input('duree');
-        $promo->pourFamille = $request->input('pourFamille');
+        $promo->pourFamille = $request->input('pourFamille')||false;
         $promo->photo = $fileNameToStore;
         $promo->save(); 
 
